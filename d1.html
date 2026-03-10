@@ -172,6 +172,28 @@ głównie w biedniejszych, trudno dostępnych rejonach górskich.
 <footer>
     Maroko 2026 🏍️
 </footer>
+<script>
+document.querySelectorAll("a.button").forEach(link => {
+  link.addEventListener("click", function(e) {
 
+    const url = this.href;
+
+    if(url.includes("maps.app.goo.gl") || url.includes("google.com/maps")){
+
+      e.preventDefault();
+
+      const appUrl = url.replace("https://maps.app.goo.gl","comgooglemaps://");
+
+      window.location.href = appUrl;
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 800);
+
+    }
+
+  });
+});
+</script>
 </body>
 </html>
